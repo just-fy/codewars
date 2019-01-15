@@ -1,4 +1,4 @@
-const getSumOfDigits = (num) => {
+const getSumOfDigits = num => {
 	if (num < 10) {
 		return num;
 	}
@@ -11,3 +11,6 @@ const getSumOfDigits = (num) => {
 	
 	return getSumOfDigits(sumDigits);
 };
+
+// more elegant option
+const digitSum = n => [...n.toString()].map(n => Number(n)).reduce((a, b) => a + b);
