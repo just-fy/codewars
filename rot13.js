@@ -7,10 +7,10 @@ const rot13 = message => {
 	const rotLetters = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
 	const arrLetters = [...message];
 
-	const result = arrLetters.map(current => {
+	const result = arrLetters.reduce((acc, current) => {
 		const pos = alphabet.indexOf(current);
-		return pos !== -1 ? rotLetters[pos] : current;
-	}).join('');
+		return pos !== -1 ? acc += rotLetters[pos] : acc += current;
+	}, '');
 
 	return result;
 };
